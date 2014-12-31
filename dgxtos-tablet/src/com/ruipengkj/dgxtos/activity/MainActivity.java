@@ -1,4 +1,8 @@
-package com.ruipengkj.dgxtos;
+package com.ruipengkj.dgxtos.activity;
+
+import com.ruipengkj.dgxtos.R;
+import com.ruipengkj.dgxtos.R.layout;
+import com.ruipengkj.dgxtos.R.menu;
 
 import android.os.Bundle;
 import android.app.Activity;
