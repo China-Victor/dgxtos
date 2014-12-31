@@ -5,19 +5,23 @@ import com.ruipengkj.dgxtos.R;
 import com.ruipengkj.dgxtos.service.AdvertisementAdmin;
 
 import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
 
 /**
  * 广告页面
  * @author ruipengVictor
  *
  */
-public class AdvertisementActivity extends BaseActivity {
+public class AdvertisementActivity extends BaseActivity implements OnClickListener {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
 		setContentView(R.layout.activity_advertise);
+		
+		findViewById(R.id.bt_advert_closs).setOnClickListener(this);
 	}
 	
 	@Override
@@ -25,6 +29,14 @@ public class AdvertisementActivity extends BaseActivity {
 		super.onDestroy();
 		//更新广告显示状态
 		AdvertisementAdmin.visible(false);
+	}
+
+	@Override
+	public void onClick(View v) {
+		if(v.getId() == R.id.bt_advert_closs){
+			finish();
+		}
+		
 	}
 	
 }

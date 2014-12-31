@@ -14,7 +14,8 @@
 
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme">
-        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+        <item name="android:windowNoTitle">true</item> <!-- 取消标题栏 -->
+        <item name="android:windowFullscreen">true</item> <!-- 全屏显示 -->
     </style>
 
 </resources>
