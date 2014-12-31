@@ -1,7 +1,7 @@
 package com.ruipengkj.dgxtos.inter;
 
 /**
- * 广告状态变化监听器
+ * 骞垮憡鐘舵�佸彉鍖栫洃鍚櫒
  * @author ruipengVictor
  *
  */

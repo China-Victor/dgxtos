@@ -13,7 +13,7 @@ import android.os.PowerManager;
 import android.util.Log;
 
 /**
- * ÉèÖÃ¼àÌıÆÁÄ»µÄÏÔÊ¾×´Ì¬ £¨ÏÔÊ¾×´Ì¬|ËøÆÁ×´Ì¬£©
+ * è®¾ç½®ç›‘å¬å±å¹•çš„æ˜¾ç¤ºçŠ¶æ€ ï¼ˆæ˜¾ç¤ºçŠ¶æ€|é”å±çŠ¶æ€ï¼‰
  * @author ruipengVictor
  *
  */
@@ -31,12 +31,12 @@ public class ScreenObserver{
 			mReflectScreenState = PowerManager.class.getMethod("isScreenOn",
 					new Class[] {});
 		} catch (NoSuchMethodException nsme) {
-			Log.d(TAG, "API < 7," + nsme);  //SDk 7 Ö®Ç°Ã»ÓĞ¸Ã·½·¨
+			Log.d(TAG, "API < 7," + nsme);  //SDk 7 ä¹‹å‰æ²¡æœ‰è¯¥æ–¹æ³•
 		}
 	}
 	
 	/**
-     * screen×´Ì¬¹ã²¥½ÓÊÕÕß
+     * screençŠ¶æ€å¹¿æ’­æ¥æ”¶è€…
      * @author ruipengVictor
      *
      */
@@ -50,14 +50,14 @@ public class ScreenObserver{
     		}else if(Intent.ACTION_SCREEN_OFF.equals(action)){
     			mScreenStateListener.onScreenOff();
     		}
-    		//ÖÕ¶Ë¹ã²¥
+    		//ç»ˆç«¯å¹¿æ’­
     		abortBroadcast();
     	}
     }
     
 	
 	/**
-	 * ÇëÇó¼àÌıscreen×´Ì¬¸üĞÂ
+	 * è¯·æ±‚ç›‘å¬screençŠ¶æ€æ›´æ–°
 	 * @param listener
 	 */
 	public void requestScreenStateUpdate(ScreenStateListener listener) {
@@ -68,7 +68,7 @@ public class ScreenObserver{
 	}
 	
 	/**
-	 * µÚÒ»´ÎÇëÇóscreen×´Ì¬
+	 * ç¬¬ä¸€æ¬¡è¯·æ±‚screençŠ¶æ€
 	 */
 	private void firstGetScreenState(){
 		PowerManager manager = (PowerManager) mContext
@@ -85,14 +85,14 @@ public class ScreenObserver{
 	}
 	
 	/**
-	 * Í£Ö¹screen×´Ì¬¸üĞÂ
+	 * åœæ­¢screençŠ¶æ€æ›´æ–°
 	 */
 	public void stopScreenStateUpdate(){
 		mContext.unregisterReceiver(mScreenReceiver);
 	}
 	
 	/**
-	 * Æô¶¯¼àÌıscreen×´Ì¬¹ã²¥½ÓÊÕÆ÷ (¶¯Ì¬×¢²á¹ã²¥)
+	 * å¯åŠ¨ç›‘å¬screençŠ¶æ€å¹¿æ’­æ¥æ”¶å™¨ (åŠ¨æ€æ³¨å†Œå¹¿æ’­)
 	 */
     private void startScreenBroadcastReceiver(){
     	IntentFilter filter = new IntentFilter();
@@ -102,7 +102,7 @@ public class ScreenObserver{
     }
 	
     /**
-     * screenÊÇ·ñ´ò¿ª×´Ì¬
+     * screenæ˜¯å¦æ‰“å¼€çŠ¶æ€
      * @param pm
      * @return
      */

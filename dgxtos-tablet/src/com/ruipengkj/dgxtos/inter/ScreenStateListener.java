@@ -2,11 +2,11 @@ package com.ruipengkj.dgxtos.inter;
 
 public interface ScreenStateListener {
 	/**
-	 * ¿ªÆôÏÔÊ¾ÆÁ
+	 * å¼€å¯æ˜¾ç¤ºå±
 	 */
 	public void onScreenOn();
 	/**
-	 * ËøÆÁ
+	 * é”å±
 	 */
 	public void onScreenOff();
 }

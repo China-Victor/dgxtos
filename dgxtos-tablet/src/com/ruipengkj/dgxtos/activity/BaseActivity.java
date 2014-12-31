@@ -16,7 +16,7 @@ import android.view.View.OnTouchListener;
 import android.widget.Toast;
 
 /**
- * Ó¦ÓÃÖĞËùÓĞActivityµÄ»ùÀà<br>
+ * åº”ç”¨ä¸­æ‰€æœ‰Activityçš„åŸºç±»<br>
  * 
  * @author ruipengVictor
  * 
@@ -33,24 +33,24 @@ public abstract class BaseActivity extends Activity implements OnTouchListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		// ´´½¨¹ã¸æ¹ÜÀíÆ÷
+		// åˆ›å»ºå¹¿å‘Šç®¡ç†å™¨
 		advertisementAdmin = AdvertisementAdmin.newInstance(this);
-		advertisementAdmin.start(); // ¿ªÆô¹ã¸æ
+		advertisementAdmin.start(); // å¼€å¯å¹¿å‘Š
 
 		/*
-		 * ÈÃÏµÍ³½«home¼üÊÂ¼ş´«¸øonKeyDown()·½·¨
+		 * è®©ç³»ç»Ÿå°†homeé”®äº‹ä»¶ä¼ ç»™onKeyDown()æ–¹æ³•
 		 */
 		this.getWindow().setFlags(FLAG_HOMEKEY_DISPATCHED,
-				FLAG_HOMEKEY_DISPATCHED);// ¹Ø¼ü´úÂë
+				FLAG_HOMEKEY_DISPATCHED);// å…³é”®ä»£ç 
 
 		/*
-		 * ½ûÓÃËøÆÁÓ¦ÓÃ
+		 * ç¦ç”¨é”å±åº”ç”¨
 		 */
 		disableLockScreen();
 	}
 
 	/**
-	 * ½ûÓÃÏµÍ³ËøÆÁÓ¦ÓÃ
+	 * ç¦ç”¨ç³»ç»Ÿé”å±åº”ç”¨
 	 */
 	private void disableLockScreen() {
 		ScreenObserver observer = new ScreenObserver(this);
@@ -61,25 +61,25 @@ public abstract class BaseActivity extends Activity implements OnTouchListener {
 
 			@Override
 			public void onScreenOn() {
-				Log.i(TAG, "¿ªÆôÏÔÊ¾ÆÁ");
+				Log.i(TAG, "å¼€å¯æ˜¾ç¤ºå±");
 				displaySysLock();
 			}
 
 			@Override
 			public void onScreenOff() {
-				Log.i(TAG, "¹ş¹ş  ¹ã¸æÊ±¼äµ½ÁË£¡£¡");
+				Log.i(TAG, "å“ˆå“ˆ  å¹¿å‘Šæ—¶é—´åˆ°äº†ï¼ï¼");
 				displaySysLock();
 			}
 
 			/**
-			 * ÆÁ±ÎÏµÍ³µÄËøÆÁÓ¦ÓÃ
+			 * å±è”½ç³»ç»Ÿçš„é”å±åº”ç”¨
 			 */
 			@SuppressWarnings("deprecation")
 			private void displaySysLock() {
 				mKeyguardManager = (KeyguardManager) getApplicationContext()
 						.getSystemService(Context.KEYGUARD_SERVICE);
 				mKeyguardLock = mKeyguardManager.newKeyguardLock("FxLock");
-				// ÆÁ±ÎÊÖ»úÄÚÖÃµÄËøÆÁ
+				// å±è”½æ‰‹æœºå†…ç½®çš„é”å±
 				mKeyguardLock.disableKeyguard();
 			}
 		});
@@ -88,17 +88,17 @@ public abstract class BaseActivity extends Activity implements OnTouchListener {
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		Log.i(TAG, "keyCode" + keyCode);
-		// ¸üĞÂ²Ù×÷Ê±¼ä
+		// æ›´æ–°æ“ä½œæ—¶é—´
 		AdvertisementAdmin.updateTime();
-		// À¹½ØµçÔ´¼ü
+		// æ‹¦æˆªç”µæºé”®
 		if (keyCode == KeyEvent.KEYCODE_POWER) {
-			Toast.makeText(this, "µçÔ´¼ü±»½û²»ÁË", 0).show();
+			Toast.makeText(this, "ç”µæºé”®è¢«ç¦ä¸äº†", 0).show();
 			return true;
 		}
 		switch (keyCode) {
-		case KeyEvent.KEYCODE_VOLUME_DOWN: // ÆÁ±ÎÒôÁ¿¼üÏÂ
-		case KeyEvent.KEYCODE_VOLUME_UP: // ÆÁ±ÎÒôÁ¿¼üÉÏ
-		case KeyEvent.KEYCODE_HOME: // ÆÁ±Îhome¼ü
+		case KeyEvent.KEYCODE_VOLUME_DOWN: // å±è”½éŸ³é‡é”®ä¸‹
+		case KeyEvent.KEYCODE_VOLUME_UP: // å±è”½éŸ³é‡é”®ä¸Š
+		case KeyEvent.KEYCODE_HOME: // å±è”½homeé”®
 			return true;
 		default:
 			break;
@@ -107,24 +107,24 @@ public abstract class BaseActivity extends Activity implements OnTouchListener {
 	}
 
 	/**
-	 * ÔÚActivityÄÚÃ¿´Î´¥ÆÁ¶¼»á´¥·¢µÄº¯Êı ÔÚActivityÍâµÄ¿Ø¼şĞèÒª×¢²áOnTouchListenerÊÂ¼ş
+	 * åœ¨Activityå†…æ¯æ¬¡è§¦å±éƒ½ä¼šè§¦å‘çš„å‡½æ•° åœ¨Activityå¤–çš„æ§ä»¶éœ€è¦æ³¨å†ŒOnTouchListeneräº‹ä»¶
 	 */
 	@Override
 	public void onUserInteraction() {
 		Log.i(TAG, " onUserInteraction ");
-		// ¸üĞÂÊ±¼ä
+		// æ›´æ–°æ—¶é—´
 		AdvertisementAdmin.updateTime();
 		super.onUserInteraction();
 	}
 
 	/**
-	 * ActivityÍâµÄ½çÃæµÄ¿Õ¼ş»Øµ÷º¯Êı<br>
-	 * Èç£ºdialogÀïµÄ¿Ø¼şĞèÒª×¢²á¸ÃÊÂ¼ş
+	 * Activityå¤–çš„ç•Œé¢çš„ç©ºä»¶å›è°ƒå‡½æ•°<br>
+	 * å¦‚ï¼šdialogé‡Œçš„æ§ä»¶éœ€è¦æ³¨å†Œè¯¥äº‹ä»¶
 	 * 
 	 */
 	@Override
 	public boolean onTouch(View v, MotionEvent event) {
-		// ¸üĞÂÊ±¼ä
+		// æ›´æ–°æ—¶é—´
 		AdvertisementAdmin.updateTime();
 		return false;
 	}

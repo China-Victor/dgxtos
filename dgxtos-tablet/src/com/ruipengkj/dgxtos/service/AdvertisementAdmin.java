@@ -13,7 +13,7 @@ import android.content.Intent;
 import android.util.Log;
 
 /**
- * ¹ã¸æ´´½¨ºÍ¹ÜÀíÀà
+ * å¹¿å‘Šåˆ›å»ºå’Œç®¡ç†ç±»
  * @author ruipengVictor
  *
  */
@@ -23,65 +23,65 @@ public class AdvertisementAdmin {
 	
 	private static AdvertisementAdmin instance = null;
 	/**
-	 * ¼ÆÊ±Æ÷
+	 * è®¡æ—¶å™¨
 	 */
 	private Timer mTimer = null;
 	/**
-	 * ³¬Ê±Ê±¼ä
+	 * è¶…æ—¶æ—¶é—´
 	 */
 	private long timeout;
 	/**
-	 * ¼ÇÂ¼×îºó²Ù×÷Ê±¼ä
+	 * è®°å½•æœ€åæ“ä½œæ—¶é—´
 	 */
 	private static long lastTouchTime;
 	/**
-	 * Ä¬ÈÏ³¬Ê±Ê±¼ä
-	 * //3·ÖÖÓ
+	 * é»˜è®¤è¶…æ—¶æ—¶é—´
+	 * //3åˆ†é’Ÿ
 	 */
 //	public final long DEFAULT_TIMEROUT = 180000; 
 	public static final long DEFAULT_TIMEROUT = 10000; 
 	
 	/**
-	 * ±ê¼Ç¹ã¸æÊÇ·ñÒÑ¾­ÏÔÊ¾
+	 * æ ‡è®°å¹¿å‘Šæ˜¯å¦å·²ç»æ˜¾ç¤º
 	 */
 	private static boolean visible;
 	/**
-	 * ±ê¼ÇÊÇ·ñ¿ªÊ¼¹ã¸æ
+	 * æ ‡è®°æ˜¯å¦å¼€å§‹å¹¿å‘Š
 	 */
 	private boolean start;
 	
 	private Context mContext;
 	/**
-	 * ¹ã¸æ×´Ì¬¼àÌıÆ÷
+	 * å¹¿å‘ŠçŠ¶æ€ç›‘å¬å™¨
 	 */
 	private static OnVadertisementStatusChangeListener listener;
 	
 	/**
-	 * Ë½ÓĞ¹¹Ôìº¯Êı
+	 * ç§æœ‰æ„é€ å‡½æ•°
 	 */
 	private AdvertisementAdmin(Context context) {
 		this.mContext = context;
 		
-		timeout = DEFAULT_TIMEROUT;  //Ä¬ÈÏ³¬Ê±Ê±¼ä
+		timeout = DEFAULT_TIMEROUT;  //é»˜è®¤è¶…æ—¶æ—¶é—´
 		
-		lastTouchTime = System.currentTimeMillis();  //³õÊ¼»¯×îºó²Ù×÷ÆÁÄ»Ê±¼ä
+		lastTouchTime = System.currentTimeMillis();  //åˆå§‹åŒ–æœ€åæ“ä½œå±å¹•æ—¶é—´
 		
 		mTimer = new Timer();
 		mTimer.schedule(new TimerTask() {
 			@Override
 			public void run() {
-				//±ê¼Ç¿ªÊ¼ && ³¬Ê± && µ±Ç°Ã»ÓĞÏÔÊ¾¹ã¸æ
+				//æ ‡è®°å¼€å§‹ && è¶…æ—¶ && å½“å‰æ²¡æœ‰æ˜¾ç¤ºå¹¿å‘Š
 				if(start && System.currentTimeMillis() - lastTouchTime >= timeout && !isVisible()){ 
-					System.out.println("¹ş¹ş ¹ã¸æÊ±¼äµ½ÁË");
+					System.out.println("å“ˆå“ˆ å¹¿å‘Šæ—¶é—´åˆ°äº†");
 					showAdvertisement();
-					visible(true); //¸Ä±äÏÔÊ¾×´Ì¬
+					visible(true); //æ”¹å˜æ˜¾ç¤ºçŠ¶æ€
 				}
 			}
-		}, timeout, 1000);//timeoutÃëºó¿ªÊ¼¼ì²â£¬ÒÔºóÃ»¸ô1Ãë¼ì²âÒ»ÏÂ
+		}, timeout, 1000);//timeoutç§’åå¼€å§‹æ£€æµ‹ï¼Œä»¥åæ²¡éš”1ç§’æ£€æµ‹ä¸€ä¸‹
 	}
 	/**
-	 * µÃµ½Ò»¸ö¹ã¸æ¹ÜÀíÀàÊµÀı
-	 * @param context  ĞèÒªÒ»¸öÉÏÏÂÎÄ
+	 * å¾—åˆ°ä¸€ä¸ªå¹¿å‘Šç®¡ç†ç±»å®ä¾‹
+	 * @param context  éœ€è¦ä¸€ä¸ªä¸Šä¸‹æ–‡
 	 * @return
 	 */
 	public static AdvertisementAdmin newInstance(Context context){
@@ -96,13 +96,13 @@ public class AdvertisementAdmin {
 	}
 	
 	/**
-	 * ¿ªÊ¼¹ã¸æµ¹¼ÆÊ±
+	 * å¼€å§‹å¹¿å‘Šå€’è®¡æ—¶
 	 */
 	public void start() {
 		this.start = true;
 	}
 	/**
-	 * ¿ªÊ¼¹ã¸æµ¹¼ÆÊ±,²¢Ö¸¶¨Ò»¸ö¼àÌıÆ÷
+	 * å¼€å§‹å¹¿å‘Šå€’è®¡æ—¶,å¹¶æŒ‡å®šä¸€ä¸ªç›‘å¬å™¨
 	 */
 	public void start(OnVadertisementStatusChangeListener listener) {
 		AdvertisementAdmin.listener = listener;
@@ -110,7 +110,7 @@ public class AdvertisementAdmin {
 	}
 	
 	/**
-	 * ¿ªÊ¼¹ã¸æµ¹¼ÆÊ±,²¢Ö¸¶¨Ò»¸ö¼àÌıÆ÷ºÍ³¬Ê±Ê±¼ä
+	 * å¼€å§‹å¹¿å‘Šå€’è®¡æ—¶,å¹¶æŒ‡å®šä¸€ä¸ªç›‘å¬å™¨å’Œè¶…æ—¶æ—¶é—´
 	 */
 	public void start(OnVadertisementStatusChangeListener listener,long timeout) {
 		AdvertisementAdmin.listener = listener;
@@ -119,14 +119,14 @@ public class AdvertisementAdmin {
 	}
 	
 	/**
-	 * ¿ªÊ¼¹ã¸æµ¹¼ÆÊ±
+	 * å¼€å§‹å¹¿å‘Šå€’è®¡æ—¶
 	 */
 	public void stop() {
 		this.start = false;
 	}
 	
 	/**
-	 * ¸üĞÂ×îºó²Ù×÷Ê±¼ä
+	 * æ›´æ–°æœ€åæ“ä½œæ—¶é—´
 	 */
 	public static void updateTime() {
 		lastTouchTime = System.currentTimeMillis();  
@@ -138,7 +138,7 @@ public class AdvertisementAdmin {
 	}
 	
 	public static void visible(boolean bool) {
-		if(listener!=null && visible != bool){  //Ö¸¶¨ÁË¼àÌıÆ÷  && Ç°ºó×´Ì¬·¢Éú¸Ä±ä
+		if(listener!=null && visible != bool){  //æŒ‡å®šäº†ç›‘å¬å™¨  && å‰åçŠ¶æ€å‘ç”Ÿæ”¹å˜
 			listener.onStatusChange(visible);
 		}
 		visible = bool;
@@ -148,7 +148,7 @@ public class AdvertisementAdmin {
 		return timeout;
 	}
 	/**
-	 * ÉèÖÃ³¬Ê±Ê±¼ä
+	 * è®¾ç½®è¶…æ—¶æ—¶é—´
 	 * @param timeout
 	 */
 	public void setTimeout(long timeout) {

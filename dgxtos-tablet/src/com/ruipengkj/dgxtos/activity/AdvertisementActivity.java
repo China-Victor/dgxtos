@@ -1,13 +1,13 @@
 package com.ruipengkj.dgxtos.activity;
 
 
+import com.ruipengkj.dgxtos.R;
 import com.ruipengkj.dgxtos.service.AdvertisementAdmin;
 
-import android.R;
 import android.os.Bundle;
 
 /**
- * ¹ã¸æÒ³Ãæ
+ * å¹¿å‘Šé¡µé¢
  * @author ruipengVictor
  *
  */
@@ -17,13 +17,13 @@ public class AdvertisementActivity extends BaseActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
-		
+		setContentView(R.layout.activity_advertise);
 	}
 	
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
-		//¸üĞÂ¹ã¸æÏÔÊ¾×´Ì¬
+		//æ›´æ–°å¹¿å‘Šæ˜¾ç¤ºçŠ¶æ€
 		AdvertisementAdmin.visible(false);
 	}
 	

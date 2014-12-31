@@ -1,7 +1,7 @@
 package com.ruipengkj.dgxtos.net.engine;
 
 /**
- * ²ËÀàÒµÎñÀà
+ * èœç±»ä¸šåŠ¡ç±»
  * 
  * @author ruipengVictor
  * 

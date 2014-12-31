@@ -1,7 +1,7 @@
 package com.ruipengkj.dgxtos.net.bean;
 
 /**
- * ¹ã¸æÀàÊµÌå
+ * å¹¿å‘Šç±»å®ä½“
  * 
  * @author ruipengVictor
  * 
