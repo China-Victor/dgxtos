@@ -1,12 +1,9 @@
 package com.ruipengkj.dgxtos.activity;
 
-import com.ruipengkj.dgxtos.inter.ScreenStateListener;
-import com.ruipengkj.dgxtos.receiver.ScreenObserver;
-import com.ruipengkj.dgxtos.service.AdvertisementAdmin;
-
 import android.app.Activity;
 import android.app.KeyguardManager;
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -14,6 +11,10 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
 import android.widget.Toast;
+
+import com.ruipengkj.dgxtos.inter.ScreenStateListener;
+import com.ruipengkj.dgxtos.receiver.ScreenObserver;
+import com.ruipengkj.dgxtos.service.AdvertisementAdmin;
 
 /**
  * 应用中所有Activity的基类<br>
@@ -44,15 +45,22 @@ public abstract class BaseActivity extends Activity implements OnTouchListener {
 				FLAG_HOMEKEY_DISPATCHED);// 关键代码
 
 		/*
+		 * 双向横屏
+		 */
+		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE); 
+		//单向横屏 
+//		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+		
+		/*
 		 * 禁用锁屏应用
 		 */
-		disableLockScreen();
+//		disableLockScreen();  //在这里调用会导致每个开启的Activity都会注册一个广播接收者
 	}
 
 	/**
 	 * 禁用系统锁屏应用
 	 */
-	private void disableLockScreen() {
+	protected void disableLockScreen() {
 		ScreenObserver observer = new ScreenObserver(this);
 		observer.requestScreenStateUpdate(new ScreenStateListener() {
 			private KeyguardManager mKeyguardManager = null;

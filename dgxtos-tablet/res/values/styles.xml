@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!--
         Base application theme, dependent on API level. This theme is replaced
@@ -12,10 +12,18 @@
         -->
     </style>
 
-    <!-- Application theme. -->
+    <!-- 应用主题  如普通界面使用 -->
     <style name="AppTheme" parent="AppBaseTheme">
         <item name="android:windowNoTitle">true</item> <!-- 取消标题栏 -->
         <item name="android:windowFullscreen">true</item> <!-- 全屏显示 -->
+        <!-- <item name="android:screenOrientation">landscape</item> -->
+    </style>
+    
+    <!-- 半透明背景主题   广告界面使用 -->
+    <style name="Translucent.NoTitleBar.Fullscreen" parent="AppTheme">
+        <item name="android:windowBackground">@color/panel_background</item>  
+        <item name="android:windowIsTranslucent">true</item>  
+        <item name="android:windowAnimationStyle">@+android:style/Animation.Translucent</item> 
     </style>
 
 </resources>
