@@ -8,12 +8,12 @@ public class MainActivity extends BaseActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		//禁用锁屏应用
+		disableLockScreen();
+		
 		setContentView(R.layout.activity_main);
 		
-		/*
-		 * 禁用锁屏应用
-		 */
-		disableLockScreen();
+		
 	}
 
 }

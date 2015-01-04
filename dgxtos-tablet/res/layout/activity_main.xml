@@ -2,15 +2,159 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/main_bg"
+    android:gravity="center"
     tools:context=".MainActivity" >
 
-    <TextView
+    <!-- 主界面功能键区域  白色背景部分 -->
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:background="@drawable/main_content_bg"
+        android:gravity="center"
+        android:paddingLeft="100dp"
+        android:paddingRight="10dp"
+        android:paddingTop="80dp"
+        android:paddingBottom="80dp"
+        android:orientation="horizontal" ><!-- 横向分布 -->
+
+        <!-- 左侧一列按钮 -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            
+             ><!-- 竖直分布 -->
+            
+            <!-- 欢迎按钮部分 -->
+            <LinearLayout
+                android:id="@+id/ll_main_welcame_action"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/welcame_action_bg"
+                android:orientation="vertical"
+                android:gravity="right"
+                android:paddingTop="15dp"
+                 >
+
+                <!-- 显示日期 -->
+                <TextView
+                    android:id="@+id/tv_main_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2014-12-23"
+                    android:textColor="@android:color/white"
+                    android:layout_marginRight="10dp"
+                    android:textSize="18sp" />
+
+                <!-- 显示当前时间 -->
+                <TextView
+                    android:id="@+id/tv_main_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="10dp"
+                    android:text="19:20"
+                    android:textColor="@android:color/white"
+                    android:textSize="30sp" />
+                
+                <!-- 显示台号 -->
+                <TextView
+                    android:id="@+id/tv_main_table_number"
+                    android:layout_width="100dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center_vertical|right"
+                    android:paddingRight="10dp"
+                    android:text="103号"
+                    android:background="@color/dark_green"
+                    android:textColor="@android:color/white"
+                    android:textSize="30sp" />
+                
+                <!-- 欢迎光临 中文-->
+                <TextView
+                    android:id="@+id/tv_main_welcame_cn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="5dp"
+                    android:text="德桂轩餐厅欢迎您"
+                    android:textColor="@android:color/white"
+                    android:textSize="30sp" />
+                
+                <!-- 欢迎光临  英文-->
+                <TextView
+                    android:id="@+id/tv_main_welcame_en"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="WELCOME"
+                    android:textColor="#4A680B"
+                    android:textSize="16sp" />
+            </LinearLayout>
+            <!-- 欢迎按钮部分结束 -->
+            
+            <!-- 消费明细 -->
+            <ImageButton
+                android:id="@+id/ll_main_order_detail_action"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/consumption_list_action_bg"
+                android:layout_marginTop="25dp"
+                />
+            
+            
+            <!-- 结账 -->
+            <ImageButton
+                android:id="@+id/ll_main_checkout_action"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/checkout_action_bg"
+                android:layout_marginTop="25dp"
+              />
+            
+        </LinearLayout>
+        <!-- 左侧按钮结束 -->
+        
+         <!-- 右侧一列按钮 -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:paddingLeft="50dp"
+            ><!-- 竖直分布 -->
+            
+            <!-- 点菜 -->
+            <ImageButton 
+                android:id="@+id/ib_main_order_action"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/order_action_bg"
+                />
+            
+            <!-- 呼叫服务 -->
+            <ImageButton 
+                android:id="@+id/ib_main_service_action"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/service_action_bg"
+                />
+        </LinearLayout>
+        <!--  第二列功能结束 -->
+
+		<!-- 帮助按钮 -->
+		<ImageView 
+		    android:id="@+id/iv_main_help_action"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_marginLeft="25dp"
+		    android:background="@drawable/help_action_bg"
+		    />
+		
+        
+    </LinearLayout>
 
 </RelativeLayout>

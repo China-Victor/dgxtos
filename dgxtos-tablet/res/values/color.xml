@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="panel_background">#9000</color>  <!-- 半透明背景颜色 -->
+    <color name="panel_black">#AA000000</color>  <!-- 半透明背景颜色 -->
+    <color name="panel_white">#44FFFFFF</color>
+    <color name="dark_green">#4A680B</color>
 </resources>

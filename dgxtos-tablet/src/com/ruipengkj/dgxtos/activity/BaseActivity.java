@@ -15,7 +15,6 @@ import android.widget.Toast;
 import com.ruipengkj.dgxtos.inter.ScreenStateListener;
 import com.ruipengkj.dgxtos.receiver.ScreenObserver;
 import com.ruipengkj.dgxtos.service.AdvertisementAdmin;
-
 /**
  * 应用中所有Activity的基类<br>
  * 
@@ -36,7 +35,7 @@ public abstract class BaseActivity extends Activity implements OnTouchListener {
 
 		// 创建广告管理器
 		advertisementAdmin = AdvertisementAdmin.newInstance(this);
-		advertisementAdmin.start(); // 开启广告
+//		advertisementAdmin.start(); // 开启广告
 
 		/*
 		 * 让系统将home键事件传给onKeyDown()方法
