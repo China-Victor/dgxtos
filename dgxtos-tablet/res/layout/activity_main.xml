@@ -3,7 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/main_bg"
-    android:gravity="center"
     tools:context=".MainActivity" >
 
     <!-- 主界面功能键区域  白色背景部分 -->
@@ -12,28 +11,29 @@
         android:layout_height="wrap_content"
         android:background="@drawable/main_content_bg"
         android:gravity="center"
+        android:layout_centerInParent="true"
         android:paddingLeft="100dp"
-        android:paddingRight="10dp"
-        android:paddingTop="80dp"
-        android:paddingBottom="80dp"
+        android:paddingRight="100dp"
+        android:paddingTop="50dp"
+        android:paddingBottom="50dp"
         android:orientation="horizontal" ><!-- 横向分布 -->
 
-        <!-- 左侧一列按钮 -->
+        <!-- 左侧一列按钮 - 竖直分布 -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="center"
-            
-             ><!-- 竖直分布 -->
+             >
             
             <!-- 欢迎按钮部分 -->
             <LinearLayout
                 android:id="@+id/ll_main_welcame_action"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/welcame_action_bg"
+                android:background="@drawable/welcame_action_bg_seletor"
                 android:orientation="vertical"
+                android:clickable="true"
                 android:gravity="right"
                 android:paddingTop="15dp"
                  >
@@ -45,6 +45,7 @@
                     android:layout_height="wrap_content"
                     android:text="2014-12-23"
                     android:textColor="@android:color/white"
+                    android:singleLine="true"
                     android:layout_marginRight="10dp"
                     android:textSize="18sp" />
 
@@ -56,18 +57,21 @@
                     android:layout_marginTop="5dp"
                     android:layout_marginRight="10dp"
                     android:text="19:20"
+                    android:singleLine="true"
                     android:textColor="@android:color/white"
                     android:textSize="30sp" />
                 
                 <!-- 显示台号 -->
                 <TextView
                     android:id="@+id/tv_main_table_number"
-                    android:layout_width="100dp"
+                    android:layout_width="wrap_content"
+                    android:minWidth="100dp"
                     android:layout_height="40dp"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="10dp"
                     android:gravity="center_vertical|right"
                     android:paddingRight="10dp"
                     android:text="103号"
+                    android:singleLine="true"
                     android:background="@color/dark_green"
                     android:textColor="@android:color/white"
                     android:textSize="30sp" />
@@ -78,8 +82,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="10dp"
                     android:text="德桂轩餐厅欢迎您"
+                    android:singleLine="true"
                     android:textColor="@android:color/white"
                     android:textSize="30sp" />
                 
@@ -90,6 +95,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
                     android:text="WELCOME"
+                    android:singleLine="true"
                     android:textColor="#4A680B"
                     android:textSize="16sp" />
             </LinearLayout>
@@ -97,27 +103,29 @@
             
             <!-- 消费明细 -->
             <ImageButton
-                android:id="@+id/ll_main_order_detail_action"
+                android:id="@+id/ib_main_consumption_list_action"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/consumption_list_action_bg"
+                android:src="@drawable/common_seletor"
                 android:layout_marginTop="25dp"
                 />
             
             
             <!-- 结账 -->
             <ImageButton
-                android:id="@+id/ll_main_checkout_action"
+                android:id="@+id/ib_main_checkout_action"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/checkout_action_bg"
+                android:src="@drawable/common_seletor"
                 android:layout_marginTop="25dp"
               />
             
         </LinearLayout>
         <!-- 左侧按钮结束 -->
         
-         <!-- 右侧一列按钮 -->
+        <!-- 右侧一列按钮 -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -132,6 +140,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/order_action_bg"
+                android:src="@drawable/common_seletor"
                 />
             
             <!-- 呼叫服务 -->
@@ -141,20 +150,24 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
                 android:background="@drawable/service_action_bg"
+                android:src="@drawable/common_seletor"
                 />
         </LinearLayout>
         <!--  第二列功能结束 -->
 
-		<!-- 帮助按钮 -->
-		<ImageView 
-		    android:id="@+id/iv_main_help_action"
-		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content"
-		    android:layout_marginLeft="25dp"
-		    android:background="@drawable/help_action_bg"
-		    />
+		
 		
         
     </LinearLayout>
-
+	<!-- 帮助按钮 -->
+	<ImageButton
+		    android:id="@+id/ib_main_help_action"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_margin="25dp"
+		    android:layout_alignParentRight="true"
+		    android:layout_alignParentBottom="true"
+		    android:background="@drawable/help_action_bg"
+		    android:src="@drawable/common_seletor"
+		    />
 </RelativeLayout>

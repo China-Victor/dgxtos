@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.View.OnTouchListener;
 import android.widget.Toast;
 
+import com.ruipengkj.dgxtos.ConstantValue;
 import com.ruipengkj.dgxtos.inter.ScreenStateListener;
 import com.ruipengkj.dgxtos.receiver.ScreenObserver;
 import com.ruipengkj.dgxtos.service.AdvertisementAdmin;
@@ -25,17 +26,17 @@ public abstract class BaseActivity extends Activity implements OnTouchListener {
 
 	private static final String TAG = "BaseActivity";
 
-	private AdvertisementAdmin advertisementAdmin;
-
 	public static final int FLAG_HOMEKEY_DISPATCHED = 0x80000000;
+
+	private static final boolean D = ConstantValue.DEBUG;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		// 创建广告管理器
-		advertisementAdmin = AdvertisementAdmin.newInstance(this);
-//		advertisementAdmin.start(); // 开启广告
+		AdvertisementAdmin.newInstance(this);
+		
+		AdvertisementAdmin.start(); // 开启广告
 
 		/*
 		 * 让系统将home键事件传给onKeyDown()方法
@@ -133,6 +134,7 @@ public abstract class BaseActivity extends Activity implements OnTouchListener {
 	public boolean onTouch(View v, MotionEvent event) {
 		// 更新时间
 		AdvertisementAdmin.updateTime();
+		if(D)Log.i(TAG, "onTouch --> " );
 		return false;
 	}
 }

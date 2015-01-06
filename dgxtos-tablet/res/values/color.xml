@@ -3,4 +3,8 @@
     <color name="panel_black">#AA000000</color>  <!-- 半透明背景颜色 -->
     <color name="panel_white">#44FFFFFF</color>
     <color name="dark_green">#4A680B</color>
+    <color name="gray_black">#33000000</color>
+    <color name="gray_pressed">#77000000</color>
+    <color name="theme">#D5771B</color>
+    <color name="red">#FF0000</color>
 </resources>

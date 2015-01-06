@@ -48,7 +48,7 @@ public class AdvertisementAdmin {
 	/**
 	 * 标记是否开始广告
 	 */
-	private boolean start;
+	private static boolean start;
 	
 	private Context mContext;
 	/**
@@ -98,8 +98,8 @@ public class AdvertisementAdmin {
 	/**
 	 * 开始广告倒计时
 	 */
-	public void start() {
-		this.start = true;
+	public static void start() {
+		start = true;
 	}
 	/**
 	 * 开始广告倒计时,并指定一个监听器
@@ -121,8 +121,8 @@ public class AdvertisementAdmin {
 	/**
 	 * 开始广告倒计时
 	 */
-	public void stop() {
-		this.start = false;
+	public static void stop() {
+		start = false;
 	}
 	
 	/**

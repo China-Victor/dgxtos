@@ -39,4 +39,9 @@ public class AdvertisementActivity extends BaseActivity implements OnClickListen
 		
 	}
 	
+	@Override
+	public void onUserInteraction() {
+		finish();
+		super.onUserInteraction();
+	}
 }

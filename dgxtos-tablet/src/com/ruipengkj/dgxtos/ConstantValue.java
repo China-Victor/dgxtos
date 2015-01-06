@@ -1,7 +1,7 @@
 package com.ruipengkj.dgxtos;
 
 /**
- * 全局常亮类
+ * 全局常量类
  * @author ruipengVictor
  *
  */

@@ -6,5 +6,8 @@ package com.ruipengkj.dgxtos;
  *
  */
 public class GloableParams {
+	
+	public static String currentTable = null;
+	
 
 }
